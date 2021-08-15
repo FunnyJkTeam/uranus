@@ -4,9 +4,9 @@ spring:
       uri: ${mongodb.uri}
 
   redis:
-    database: ${redis.db}
+    database: 0
     host: ${redis.host}
-    port: ${redis.port}
+    port: 6379
     password: ${redis.passwd}
     max-active: 10
     max-wait: 500
@@ -14,9 +14,9 @@ spring:
     min-idle: 1
     timeout: 2000
   datasource:
-    url: ${mysql.url}
+    url: ${mysql.uri}
     username: ${mysql.username}
-    password: ${mysql.password}
+    password: ${mysql.passwd}
     driver-class-name: com.mysql.cj.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
     druid:
