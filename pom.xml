@@ -3,16 +3,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<packaging>pom</packaging>
-	<modules>
-		<module>uranus-base</module>
-		<module>uranus-biz</module>
-	</modules>
-	<parent>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.5.3</version>
-		<relativePath/>
-	</parent>
+
 	<groupId>com.milchstrabe.uranus</groupId>
 	<artifactId>uranus</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
@@ -20,23 +11,28 @@
 	<description>sun ToDo resource api</description>
 
 	<properties>
-		<java.version>1.8</java.version>
+		<java_source_version>1.8</java_source_version>
+		<java_target_version>1.8</java_target_version>
+		<file_encoding>UTF-8</file_encoding>
+		<spring-boot.version>2.5.3</spring-boot.version>
+		<revision>0.0.1-SNAPSHOT</revision>
 	</properties>
+
+	<modules>
+		<module>uranus-base</module>
+		<module>uranus-biz</module>
+		<module>uranus-bom</module>
+	</modules>
 
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
 				<groupId>com.milchstrabe.uranus</groupId>
-				<artifactId>uranus-base</artifactId>
-				<version>0.0.1-SNAPSHOT</version>
+				<artifactId>uranus-bom</artifactId>
+				<version>${project.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
 			</dependency>
-
-			<dependency>
-				<groupId>com.alibaba</groupId>
-				<artifactId>druid-spring-boot-starter</artifactId>
-				<version>1.2.6</version>
-			</dependency>
-
 		</dependencies>
 	</dependencyManagement>
 
