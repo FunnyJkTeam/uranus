@@ -20,7 +20,9 @@
   <url>https://github.com/FunnyJkTeam/uranus</url>
 
   <properties>
-    <spring-boot.version>2.5.3</spring-boot.version>
+    <mybatis.version>2.2.0</mybatis.version>
+    <druid.version>1.2.5</druid.version>
+    <hutool.version>5.7.9</hutool.version>
     <revision>0.0.1-SNAPSHOT</revision>
   </properties>
 
@@ -30,13 +32,25 @@
       <dependency>
         <groupId>org.mybatis.spring.boot</groupId>
         <artifactId>mybatis-spring-boot-starter</artifactId>
-        <version>2.2.0</version>
+        <version>${mybatis.version}</version>
       </dependency>
 
       <dependency>
         <groupId>com.alibaba</groupId>
         <artifactId>druid-spring-boot-starter</artifactId>
-        <version>1.2.5</version>
+        <version>${druid.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>cn.hutool</groupId>
+        <artifactId>hutool-all</artifactId>
+        <version>${hutool.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>com.auth0</groupId>
+        <artifactId>java-jwt</artifactId>
+        <version>3.18.1</version>
       </dependency>
 
       <dependency>
@@ -44,6 +58,7 @@
         <artifactId>uranus-base</artifactId>
         <version>${revision}</version>
       </dependency>
+
 
     </dependencies>
   </dependencyManagement>

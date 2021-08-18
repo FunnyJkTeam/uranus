@@ -22,7 +22,8 @@
 		<module>uranus-base</module>
 		<module>uranus-biz</module>
 		<module>uranus-bom</module>
-	</modules>
+        <module>uranus-common</module>
+    </modules>
 
 	<dependencyManagement>
 		<dependencies>
