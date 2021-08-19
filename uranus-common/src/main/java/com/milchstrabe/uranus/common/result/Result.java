@@ -9,9 +9,9 @@ public class Result {
     private String msg;
     private Object data;
 
-    protected Result fill(Status status){
-        this.code = status.code;
-        this.msg = status.msg;
+    protected Result fill(ResultEnum resultEnum){
+        this.code = resultEnum.code;
+        this.msg = resultEnum.msg;
         return this;
     }
 

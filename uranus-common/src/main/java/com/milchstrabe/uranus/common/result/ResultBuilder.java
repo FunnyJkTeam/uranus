@@ -12,18 +12,18 @@ public class ResultBuilder {
     private ResultBuilder(){}
 
     public static Result OK(){
-        return Result.builder().build().fill(Status._200);
+        return Result.builder().build().fill(ResultEnum._200);
     }
 
     public static Result OK(Object data){
-        return Result.builder().data(data).build().fill(Status._200);
+        return Result.builder().data(data).build().fill(ResultEnum._200);
     }
 
-    public static Result customize(Status status,Object data){
-        return Result.builder().data(data).build().fill(status);
+    public static Result build(ResultEnum resultEnum,Object data){
+        return Result.builder().data(data).build().fill(resultEnum);
     }
 
-    public static Result customize(Status status){
-        return Result.builder().build().fill(status);
+    public static Result build(ResultEnum resultEnum){
+        return Result.builder().build().fill(resultEnum);
     }
 }

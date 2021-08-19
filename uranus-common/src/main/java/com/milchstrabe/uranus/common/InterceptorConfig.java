@@ -24,7 +24,7 @@ public class InterceptorConfig implements WebMvcConfigurer {
     private UserArgumentsResolver userArgumentsResolver;
 
     /**
-     * /sys/v1/signIn
+     *
      * @param registry
      */
     @Override

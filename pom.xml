@@ -6,7 +6,7 @@
 
 	<groupId>com.milchstrabe.uranus</groupId>
 	<artifactId>uranus</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>${revision}</version>
 	<name>uranus</name>
 	<description>sun ToDo resource api</description>
 

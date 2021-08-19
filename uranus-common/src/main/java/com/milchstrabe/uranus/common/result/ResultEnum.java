@@ -1,14 +1,15 @@
 package com.milchstrabe.uranus.common.result;
 
-public enum Status {
+public enum ResultEnum {
     _200(200,"success"),
 
+    _300(300,"lost token"),
     _301(301,"token err"),
-    _302(302,"token time out"),
+    _302(302,"token timeout"),
     _303(303,"params err"),
     _500(500,"internal err");
 
-    Status(Integer code, String msg) {
+    ResultEnum(Integer code, String msg) {
         this.code = code;
         this.msg = msg;
     }

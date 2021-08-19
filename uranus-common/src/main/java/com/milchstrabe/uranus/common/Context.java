@@ -6,5 +6,5 @@ package com.milchstrabe.uranus.common;
  * @Version 1.0
  * @Description des user info in request from jwt
  **/
-public class $ {
+public class Context {
 }
