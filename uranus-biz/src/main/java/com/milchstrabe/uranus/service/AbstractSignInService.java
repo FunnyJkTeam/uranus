@@ -38,7 +38,7 @@ public abstract class AbstractSignInService implements ISiginService{
                 .append(accountInfoDto.getAccount());
         String code = redisTemplate.opsForValue().get(redisKey.toString());
         if(accountInfoDto.getVCode().equals(code)){
-//            redisTemplate.delete(redisKey.toString());
+            redisTemplate.delete(redisKey.toString());
             return true;
         }
         return false;
