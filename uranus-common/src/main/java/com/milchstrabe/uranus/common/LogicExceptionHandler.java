@@ -35,6 +35,6 @@ public class LogicExceptionHandler {
     @ExceptionHandler({Exception.class})
     public Result exception(Exception ex) {
         log.error("eror:",ex);
-        return null;
+        return ResultBuilder.build(ResultEnum._500);
     }
 }

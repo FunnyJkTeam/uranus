@@ -1,1 +1,0 @@
-package com.milchstrabe.uranus.domain.vo;

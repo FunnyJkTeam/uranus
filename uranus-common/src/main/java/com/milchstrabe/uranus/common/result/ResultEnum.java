@@ -7,6 +7,7 @@ public enum ResultEnum {
     _301(301,"token err"),
     _302(302,"token timeout"),
     _303(303,"params err"),
+    _304(304,"operation fail"),
     _500(500,"internal err");
 
     ResultEnum(Integer code, String msg) {

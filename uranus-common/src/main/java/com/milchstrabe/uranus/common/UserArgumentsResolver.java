@@ -1,5 +1,9 @@
 package com.milchstrabe.uranus.common;
 
+import cn.hutool.core.util.NumberUtil;
+import cn.hutool.core.util.StrUtil;
+import cn.hutool.jwt.JWT;
+import com.milchstrabe.uranus.common.exception.auth.LostTokenException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.MethodParameter;
 import org.springframework.stereotype.Component;
@@ -29,7 +33,16 @@ public class UserArgumentsResolver implements HandlerMethodArgumentResolver {
     @Override
     public Object resolveArgument(MethodParameter methodParameter, ModelAndViewContainer modelAndViewContainer, NativeWebRequest nativeWebRequest, WebDataBinderFactory webDataBinderFactory) throws Exception {
         HttpServletRequest nativeRequest = nativeWebRequest.getNativeRequest(HttpServletRequest.class);
-//        nativeRequest.getHeader()
-        return new Context();
+        String authorization = nativeRequest.getHeader("Authorization");
+        if(StrUtil.isBlank(authorization)){
+            authorization = nativeRequest.getParameter("Authorization");
+            if(StrUtil.isBlank(authorization)){
+                throw new LostTokenException();
+            }
+        }
+        JWT jwt = JWT.of(authorization);
+        Long accountId = NumberUtil.parseLong(jwt.getPayload("accountId").toString());
+        Context context = Context.builder().accountId(accountId).build();
+        return context;
     }
 }

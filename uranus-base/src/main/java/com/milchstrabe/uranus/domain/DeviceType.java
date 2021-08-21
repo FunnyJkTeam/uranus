@@ -2,9 +2,9 @@ package com.milchstrabe.uranus.domain;
 
 public enum DeviceType {
 
-    PC("pc"),
-    MOBILE("mobile"),
-    WEB("web");
+    PC("PC"),
+    MOBILE("MOBILE"),
+    WEB("WEB");
 
 
     private String type;

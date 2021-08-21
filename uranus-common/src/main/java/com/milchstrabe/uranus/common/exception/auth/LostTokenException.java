@@ -7,6 +7,4 @@ package com.milchstrabe.uranus.common.exception.auth;
  */
 public class LostTokenException extends AuthException{
 
-    public LostTokenException(){
-    }
 }

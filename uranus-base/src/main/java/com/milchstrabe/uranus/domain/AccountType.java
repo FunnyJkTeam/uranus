@@ -3,12 +3,12 @@ package com.milchstrabe.uranus.domain;
 public enum AccountType {
 
 
-    PHONE("phone"),
-    EMAIL("email"),
-    WECHAT("wechat"),
-    QQ("qq"),
-    GOOGLE("google"),
-    GITHUB("github");
+    PHONE("PHONE"),
+    EMAIL("EMAIL"),
+    WECHAT("WECHAT"),
+    QQ("QQ"),
+    GOOGLE("GOOGLE"),
+    GITHUB("GITHUB");
 
     private String type;
 

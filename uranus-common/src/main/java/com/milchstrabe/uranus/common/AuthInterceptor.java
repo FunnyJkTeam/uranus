@@ -1,14 +1,12 @@
 package com.milchstrabe.uranus.common;
 
 import cn.hutool.core.util.StrUtil;
-import com.auth0.jwt.JWT;
-import com.auth0.jwt.exceptions.JWTDecodeException;
-import com.auth0.jwt.exceptions.TokenExpiredException;
-import com.auth0.jwt.interfaces.DecodedJWT;
+import cn.hutool.jwt.JWT;
 import com.milchstrabe.uranus.common.exception.auth.AuthException;
 import com.milchstrabe.uranus.common.exception.auth.LostTokenException;
 import com.milchstrabe.uranus.common.exception.auth.TokenErrException;
 import com.milchstrabe.uranus.common.exception.auth.TokenTimeOutException;
+import com.milchstrabe.uranus.config.JWTConfig;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
@@ -35,14 +33,13 @@ public class AuthInterceptor implements HandlerInterceptor {
                 throw new LostTokenException();
             }
         }
-        DecodedJWT decode = null;
-        try {
-            decode = JWT.decode(authorization);
-        }catch (TokenExpiredException exception){
-            throw new TokenTimeOutException();
-        }catch (JWTDecodeException exception){
+        byte[] key = JWTConfig.secret.getBytes();
+
+        boolean validate = JWT.of(authorization).setKey(key).validate(0);
+        if(!validate){
             throw new TokenErrException();
         }
+
         return true;
     }
 }
